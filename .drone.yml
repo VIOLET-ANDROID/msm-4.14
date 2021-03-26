@@ -2,7 +2,7 @@
 clone: 
   depth: 1
 kind: pipeline
-name: AzurePipeline
+name: AzureModPipeline
 steps: 
   - 
     commands: 
