@@ -2048,6 +2048,7 @@ static struct cftype files[] = {
 		.write_u64 = cpu_uclamp_boost_write_u64_wrapper,
 	},
 
+
 #if !defined(CONFIG_SCHED_TUNE)
 	{
 		.name = "schedtune.boost",
@@ -2059,6 +2060,7 @@ static struct cftype files[] = {
 		.read_u64 = st_prefer_idle_read,
 		.write_u64 = st_prefer_idle_write,
 	},
+
 #endif
 
 #endif
@@ -2085,9 +2087,10 @@ static void uclamp_set(struct kernfs_open_file *of,
 
 	static struct ucl_param tgts[] = {
 		{"top-app",    	     	"10", "100", 1, 1},
-		{"foreground", 	     	"0",  "50",  1, 1},
+		{"foreground", 	     	"0",  "50",  0, 0},
 		{"background", 	     	"20", "100", 0, 0},
 		{"system-background", 	"0",  "40",  0, 0},
+		{"camera-daemon",	"50", "100", 1, 1},
 	};
 
 	for (i = 0; i < ARRAY_SIZE(tgts); i++) {
